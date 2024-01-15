@@ -25,12 +25,22 @@ For training on sample data please follow steps in the repository README. You sh
 
 **train**:
 ```bash
+cd habitat-lab/
 python -u -m habitat_baselines.run \
   --config-name=pointnav/ppo_pointnav_example.yaml
 ```
 
 You can reduce training time by changing the trainer from the default implement to [VER](rl/ver/README.md) by
 setting `trainer_name` to `"ver"` in either the config or via the command line.
+
+OR : (20240112)
+```
+python -u -m habitat_baselines.run --config-name objectnav/ddppo_objectnav.yaml habitat_baselines.evaluate=False
+
+||
+
+python -u -m habitat_baselines.run  --config-name=rearrange/rl_skill.yaml  habitat_baselines.trainer_name=ver habitat_baselines.evaluate=False
+```
 
 ```bash
 python -u -m habitat_baselines.run \
